@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    
+    h2=!item? "Add New Item":"Update Item"
+    form(action=!item?"/admin/items":"/admin/items/edit/"+item._id method="POST")
+        .form-group
+            label(for="title") Title
+            input#title.form-control(type="text" name="title" value=!item?"":item.title)
+        .form-group
+            label(for="category") Category
+            select#category.form-control(name="category")
+                each cat in categories
+                    if(!item)
+                        option(value=cat._id)=cat.title
+                    else                        
+                        option(value=cat._id selected=Boolean(item.category.toString()==cat._id.toString()))=cat.title
+        .form-group
+            label(for="title") Description
+            textarea#description.form-control(type="text" name="description")=!item?"":item.description
+        .form-group
+            input.btn.btn-info(type="submit" value="Save") 
+

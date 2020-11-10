@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  h1 Categories
+  a.btn.btn-info(href="/admin/categories/add") Add New Category
+  table.table
+    thead
+        tr
+            th Title
+            th Actions
+    tbody
+        each cat in categories
+            tr
+                td=cat.title
+                td                    
+                    a.btn.btn-actions.btn-danger.btn-sm.m-1(href="/admin/categories/delete/"+cat._id) Delete
+                    a.btn.btn-actions.btn-info.btn-sm.m-1(href="/admin/categories/edit/"+cat._id) Edit

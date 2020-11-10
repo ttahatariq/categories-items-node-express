@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    
+    h2=!category? "Add New Category":"Update Category"
+    form(action=!category?"/admin/categories":"/admin/categories/edit/"+category._id method="POST")
+        .form-group
+            label(for="title") Title
+            input#title.form-control(type="text" name="title" value=!category?"":category.title)
+        .form-group
+            input.btn.btn-info(type="submit" value="Save") 
+

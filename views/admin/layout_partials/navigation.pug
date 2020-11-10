@@ -1,0 +1,21 @@
+nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+  .sidebar-sticky
+    ul.nav.flex-column
+      li.nav-item
+        a.nav-link.active(href='/admin')
+          span(data-feather='home')
+          |                   Dashboard 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='/admin/categories')
+          span(data-feather='file')
+          |                   Categories
+      li.nav-item
+        a.nav-link(href='/admin/items')
+          span(data-feather='file')
+          |                   Items
+      li.nav-item
+        a.nav-link(href='/admin/items/faker')
+          span(data-feather='file')
+          |                   Refresh Fake Data
+      

@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  h1 Items
+  a.btn.btn-info(href="/admin/items/add") Add New Item
+  nav(aria-label='Page navigation example')
+    ul.pagination
+        -let pages = Array.from({length: totalPages}, (_, i) => i + 1) 
+        each p in pages
+            - liClass = (p==page)?"page-item active":"page-item"            
+            li(class=liClass)
+                a(href="/admin/items/"+p class="page-link")=p                
+  table.table
+    thead
+        tr
+            th Title
+            th Category
+            th Description
+            th Actions
+    tbody
+        each item in items
+            tr
+                td=item.title
+                td=item.category.title
+                td=item.description
+                td                    
+                    a.btn.btn-actions.btn-danger.btn-sm.m-1(href="/admin/items/delete/"+item._id) Delete
+                    a.btn.btn-actions.btn-info.btn-sm.m-1(href="/admin/items/edit/"+item._id) Edit
