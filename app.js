@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
+app.use("/", indexRouter); //sets a controller we call it router
 app.use("/users", usersRouter);
 require("./startup/store_routes")(app);
 require("./startup/admin_routes")(app);

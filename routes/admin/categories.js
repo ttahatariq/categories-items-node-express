@@ -3,7 +3,7 @@ var router = express.Router();
 var Category = require("../../models/CategoryModel");
 /* GET home page. */
 router.get("/", async function (req, res, next) {
-  let categories = await Category.find();
+  let categories = await Category.find(); //We are calling our model
   res.render("admin/categories", { categories });
 });
 router.post("/", async function (req, res, next) {

@@ -6,6 +6,7 @@ block content
   nav(aria-label='Page navigation example')
     ul.pagination
         -let pages = Array.from({length: totalPages}, (_, i) => i + 1) 
+        - // create a n array of integres [1..totalPages]
         each p in pages
             - liClass = (p==page)?"page-item active":"page-item"            
             li(class=liClass)
